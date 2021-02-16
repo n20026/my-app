@@ -8,10 +8,10 @@ function App() {
 
 const canvas = document.createElement('Canvas');
 const ctx = canvas.getContext('2d');
-
+	
 canvas.width = 550;
 canvas.height = 550;
-
+	
 canvas.setAttribute('style', 'display:block;margin:auto;background-color: #ddd');
 
 document.body.appendChild(canvas);
@@ -20,8 +20,8 @@ document.body.appendChild(canvas);
 const ball = {
 	x: null,
 	y: null,
-	width: 8,
-	height: 8,
+	width: 10,
+	height: 10,
 	speed: 2,
 	dx: null,
 	dy: null,
@@ -126,14 +126,14 @@ const loop = () => {
 
 	block.data.forEach((brick, index) => {
 		if(collide(ball, brick)) {
-			ball.dy *= -1;
+			ball.dy *= -1.1;
 			block.data.splice(index,1);
 		}
 	})
 
 	if (block.data.length === 0) {
 		alert('ゲームクリア！');
-		return;
+		document.location.reload();
 	}
 
 	window.requestAnimationFrame(loop);
@@ -150,7 +150,4 @@ document.addEventListener('keydown', e => {
 document.addEventListener('keyup', () => paddle.speed = 0);
 
 
-
 export default App;
-	
-

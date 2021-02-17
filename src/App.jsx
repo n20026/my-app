@@ -29,7 +29,7 @@ const ball = {
 	update: function() {
 		ctx.fillRect(this.x, this.y, this.width, this.height);
 		ctx.fill();
-		ctx.fillStyle = 'blue';
+		ctx.fillStyle = '#00f';
 
 		if(this.x < 0 || this.x > canvas.width) this.dx *= -1;
 		if(this.y < 0) this.dy *= -1;
@@ -52,7 +52,7 @@ const paddle = {
 	update: function() {
 		ctx.fillRect(this.x, this.y, this.width, this.height);
 		ctx.fill();
-		ctx.fillStyle = 'green';
+		ctx.fillStyle = '#093';
 
 		this.x += this.speed;
 	}
@@ -66,7 +66,7 @@ const block = {
 		this.data.forEach(brick => {
 			ctx.strokeRect(brick.x, brick.y, brick.width, brick.height);
 			ctx.stroke();
-			ctx.strokeStyle = 'red';
+			ctx.strokeStyle = '#f00';
 		})
 	}
 	
